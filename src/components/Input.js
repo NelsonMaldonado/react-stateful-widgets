@@ -49,12 +49,13 @@ export default function Input() {
   }
   const reset = () => {
     /* STEP 5 */
+    setInputValue("")
   }
 
   const style = {
     fontSize: "1.5em",
     marginBottom: "0.3em",
-    color: inputValue > 10 ? "crimson" : "royalblue" /* STEP 2 */,
+    color: inputValue.length > 10 ? "crimson" : "royalblue" /* STEP 2 */,
   }
 
   return (
@@ -65,7 +66,13 @@ export default function Input() {
       </div>{" "}
       {/* STEP 3 */}
       <div>
-        <input id="input" type="text" onChange={changeInput} /> {/* STEP 6 */}
+        <input
+          id="input"
+          type="text"
+          onChange={changeInput}
+          value={inputValue}
+        />{" "}
+        {/* STEP 6 */}
         <button id="resetInput" onClick={reset}>
           Reset
         </button>
